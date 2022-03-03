@@ -1,9 +1,19 @@
+import Nav from '../components/nav';
+
+
 const Home = () => {
+
+    const authToken = false;
+
+    const handleClick = () => {
+        console.log('clicked');
+    }
+
     return (
-        <div>
-        <h1>Home</h1>
-        </div>
-    );
+        <>
+        <Nav minimal={false}/>
+        </>    
+        );
     }
 
     export default Home;
