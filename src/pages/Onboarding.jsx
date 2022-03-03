@@ -25,9 +25,8 @@ const Onboarding = () => {
 
 	const handleChange = (e) => {
 		console.log("e", e)
-        const value = e.target.value;
+        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         const name = e.target.name;
-        console.log('value' + value, 'name' + name)
 
         setFormData((prevState) => ({
             ...prevState,
