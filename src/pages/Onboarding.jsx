@@ -9,7 +9,7 @@ const Onboarding = () => {
         dob_month: '',
         dob_year: '',
         show_gender: false, 
-        gender_indentity: 'man',
+        gender_identity: 'man',
         gender_interest: 'woman',
         email: '',
         url: '',
@@ -23,10 +23,20 @@ const Onboarding = () => {
 		console.log("handle submit");
 	};
 
-	const handleChange = () => {
-		console.log("handle change");
+	const handleChange = (e) => {
+		console.log("e", e)
+        const value = e.target.value;
+        const name = e.target.name;
+        console.log('value' + value, 'name' + name)
+
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value
+        }))
 	};
 
+
+    console.log(formData)
 	return (
 		<>
 			<Nav minimal={true} setShowModal={() => {}} showModal={false} />
@@ -43,7 +53,7 @@ const Onboarding = () => {
 							name="first_name"
 							placeholder="First Name"
 							required={true}
-							value={""}
+							value={formData.first_name}
 							onChange={handleChange}
 						/>
 
@@ -55,7 +65,7 @@ const Onboarding = () => {
 								name="dob_day"
 								placeholder="DD"
 								required={true}
-								value={""}
+								value={formData.dob_day}
 								onChange={handleChange}
 							/>
 							<input
@@ -64,7 +74,7 @@ const Onboarding = () => {
 								name="dob_month"
 								placeholder="MM"
 								required={true}
-								value={""}
+								value={formData.dob_month}
 								onChange={handleChange}
 							/>
 							<input
@@ -73,7 +83,7 @@ const Onboarding = () => {
 								name="dob_year"
 								placeholder="YYYY"
 								required={true}
-								value={""}
+								value={formData.dob_year}
 								onChange={handleChange}
 							/>
 						</div>
@@ -154,7 +164,7 @@ const Onboarding = () => {
 							id="about"
 							name="about"
 							placeholder="Tell us about yourself"
-							value={""}
+							value={formData.about}
 							onChange={handleChange}
 						/>
 						<input type="submit" />
@@ -170,7 +180,10 @@ const Onboarding = () => {
 							required={true}
 						/>
 
-						<div className="photo-container"></div>
+						<div className="photo-container">
+                            <img src={formData.url} alt="profile-photo" />
+
+                        </div>
 					</section>
 				</form>
 			</div>
