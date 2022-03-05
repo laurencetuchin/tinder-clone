@@ -204,3 +204,11 @@ h2 {
 .onboarding form input[type="number"] {
 	width: 10%;
 }
+
+.onboarding form .photo-container img{
+	width: 100%;
+}
+
+.onboarding {
+	border-top: solid 1px rgb(213, 213, 213);
+}
